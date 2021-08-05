@@ -1,22 +1,37 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import Index from './components/Index';
+// import Index from './components/Index';
 import Card from './components/Card';
+
 
 function App() {
   const [query, setQuery] = useState('');
   
+  useEffect(() => {
+    console.log(process.env.REACT_APP_API_PLEASE);
+  }, [])
+
+
+  const getRecipe = (e) => {
+    e.preventDefault();
+    fetch(setQuery(document.getElementById('searchQuery').value))
+    .then(() => console.log(query));
+    // console.log(query);
+  }
+
   return (
     <div className="App">
-<<<<<<< Updated upstream
       <header className="App-header">
 
       </header>
-=======
-      <Index query={query} setQuery={setQuery}/>
+      <form>
+        <input type="text" placeholder="Query" id="searchQuery"/>
+        <button onClick={getRecipe}>Search</button>
+
+      </form>
+      {/* <Index query={query} setQuery={setQuery}/> */}
       <Card/>
->>>>>>> Stashed changes
     </div>
   );
 }
