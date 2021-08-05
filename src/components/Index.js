@@ -1,18 +1,12 @@
 import React from 'react'
 
-const Index = ({query, setQuery}) => {
+const Index = ({getRecipe, getQuery}) => {
 
-  
-  const getRecipe = (e) => {
-    e.preventDefault(); 
-    setQuery = document.getElementById('searchQuery').value;
-    console.log(query);
-    
-  }
+
   return (
     <div>
       <form action="submit">
-        <input type="text" name="searchQuery" id="searchQuery" />
+        <input type="text" name="searchQuery" id="searchQuery" onChange={getQuery()}/>
         <button type="submit" onClick={getRecipe}>Search</button>
       </form>
     </div>
