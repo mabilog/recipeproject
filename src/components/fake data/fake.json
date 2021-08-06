@@ -1,0 +1,32 @@
+{
+  {
+    "id": 1,
+    "name": "pineapple",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/7/74/%E0%B4%95%E0%B5%88%E0%B4%A4%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B4%95%E0%B5%8D%E0%B4%95.jpg"
+  },
+  {
+    "id": 2,
+    "name": "apple",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pink_lady_and_cross_section.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Banana",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Banana_and_cross_section.jpg"
+  },
+  {
+    "id": 4,
+    "name": "blackberry",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/7/78/Ripe%2C_ripening%2C_and_green_blackberries.jpg"
+  },
+  {
+    "id": 5,
+    "name": "strawberry",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/6/64/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single.jpg"
+  },
+  {
+    "id": 6,
+    "name": "watermelon",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg"
+  }
+}
