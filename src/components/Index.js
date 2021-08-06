@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Index = ({getRecipe, getQuery}) => {
+const index = ({getRecipe, getQuery}) => {
 
 
   return (
@@ -13,4 +13,4 @@ const Index = ({getRecipe, getQuery}) => {
   )
 }
 
-export default Index
+export default index

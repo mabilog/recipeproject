@@ -1,38 +1,36 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
-import Card from './components/Card';
+import Recipes from './components/Recipes';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState();
+  const [query, setQuery] = useState(null);
+  const [searchData, setSearchData] = useState(null);
   
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  }
+
   const getInfo = (e) =>{
     e.preventDefault();
     console.log("Query: " + query);
-    fetch(`https://api.spoonacular.com/food/ingredients/search?apiKey=${API_KEY}&query=${query}`)
-    .then(res => res.json())
-    .then(data => {
-      return setResults(data)
-    })
-    .then(response => console.log(response))
-    .catch(err => console.log("Something went wrong! " + err))
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}`)
+      .then(res => res.json())
+      .then(data => setSearchData(data))
+      .catch(err => console.log("Something went wrong! " + err))
 
   }
 
-  const setSearch = (e) => {
-    e.preventDefault();
-    setQuery(e.target.value);
-  }
   
   return (
     <div className="App">
       <form >
-        <input type="text" onSubmit={setSearch}/>
-        <button onClick={getInfo} type="submit">Search</button>
+        <input type="text" onChange={handleChange} placeholder="Search"/>
+        <button onClick={getInfo}>Search</button>
       </form>
-      <Card results={results}/>
+      {searchData &&  <Recipes searchData={searchData}/>}
+      
     </div>
   );
 }
