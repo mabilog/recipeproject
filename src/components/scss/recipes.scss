@@ -1,0 +1,42 @@
+.recipes-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .recipe{
+    border: 1px black solid;
+  }
+
+  .img-container{
+    display: flex;
+    position: relative;
+    width: 100%;
+    img{
+      width: 360px;
+      height: auto;
+    }
+    button{
+      display: none;
+    }
+
+    &:hover {
+        button{
+          display:block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          background-color: #555;
+          color: white;
+          font-size: 16px;
+          padding: 12px 24px;
+          border: none;
+          cursor: pointer;
+          border-radius:  5px;
+      }
+    }
+    
+  }
+}

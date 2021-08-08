@@ -1,7 +1,8 @@
-import './App.css';
+import './App.scss';
 import {  useState } from 'react';
 
 import Recipes from './components/Recipes';
+import Search from './components/Search';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -24,10 +25,7 @@ function App() {
   
   return (
     <div className="App">
-      <form >
-        <input type="text" onChange={handleChange} placeholder="Search"/> 
-        <button onClick={getInfo}>Search</button>
-        </form>
+      <Search  getInfo={getInfo} handleChange={handleChange} className="search"/>
       {searchData &&  <Recipes searchData={searchData}/>}
     </div>
   );
