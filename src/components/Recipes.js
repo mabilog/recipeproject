@@ -4,7 +4,7 @@ import './scss/recipes.scss'
 const Recipes = ({searchData}) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   
-  const getRecipe = (id) => {
+  const getRecipe = async (id) => {
     fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
     .then(res => res.json())
     .then(data => console.log(data.id))
@@ -29,7 +29,6 @@ const Recipes = ({searchData}) => {
           )
         })}
     </div>
-    
   )
 }
 
