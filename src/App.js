@@ -1,6 +1,5 @@
 import './App.scss';
 import {  useState } from 'react';
-
 import Recipes from './components/Recipes';
 import Search from './components/Search';
 
@@ -9,6 +8,9 @@ function App() {
   const [query, setQuery] = useState(null);
   const [searchData, setSearchData] = useState(null);
   
+  const [savedRecipes, setSavedRecipes] = useState(
+    localStorage.getItem('savedRecipes', JSON.stringify({}))
+  )
   const handleChange = (e) => {
     setQuery(e.target.value);
   }
@@ -25,6 +27,8 @@ function App() {
   
   return (
     <div className="App">
+      <header>123Recipes </header>
+
       <Search  getInfo={getInfo} handleChange={handleChange} className="search"/>
       {searchData &&  <Recipes searchData={searchData}/>}
     </div>
