@@ -4,10 +4,9 @@ import Recipes from './components/Recipes';
 import Search from './components/Search';
 
 function App() {
-  const API_KEY = process.env.REACT_APP_API_KEY2;
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const [query, setQuery] = useState(null);
   const [searchData, setSearchData] = useState(null);
-  
   // const [savedRecipes, setSavedRecipes] = useState(
   //   localStorage.getItem('savedRecipes', JSON.stringify({}))
   // )

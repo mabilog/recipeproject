@@ -1,20 +1,39 @@
 import React, { useEffect, useState } from 'react'
-
+import './scss/recipe.scss';
 const Recipe = (props) =>{
-  const API_KEY = process.env.REACT_APP_API_KEY2;
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const recipeId = props.match.params.id;
-
   const [item, setItem] = useState()
-  
+  const [ingredients, setIngredients] = useState([]);
+
   useEffect(() => {
     fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${API_KEY}`)
     .then(res => res.json())
     .then(data => {
-      setItem(data);
+      setItem(data)
+      return data
     })
-    .then()
+    .then(res => {
+      for(let i = 0; i < res.extendedIngredients.length; i++) {
+        console.log(res.extendedIngredients[i].nameClean)
+        setIngredients([...ingredients, res.extendedIngredients[i].nameClean])
+      }
+    })
   }, [])
 
+
+  // useEffect(() => {
+  //   // console.log(item)
+  //   // for (let i = 0; i < item.extendedIngredients.length; i++){
+  //   //   setIngredients(...ingredients, item.extendedIngredients[i].nameClean)
+  //   // }
+  //     // console.log(item.extendedIngredients.length)
+  //     for(let i = 0; i < item.extendedIngredients.length; i++) {
+  //       console.log(i)
+  //       console.log(item.extendedIngredients[i].nameClean)
+  //       setIngredients(...ingredients, item.extendedIngredients[i].nameClean)
+  //     }
+  // }, [item])
   return(
     <div>
       {item && 
@@ -22,6 +41,9 @@ const Recipe = (props) =>{
         <h3 dangerouslySetInnerHTML={{ __html: item.title}}/>
         <p>Summary</p>
         <div dangerouslySetInnerHTML={{ __html: item.summary }} />
+        <p>Ingredients</p>
+        <ul>
+        </ul>
         
         <p>Instructions</p>
         <div dangerouslySetInnerHTML={{ __html: item.instructions }} />
