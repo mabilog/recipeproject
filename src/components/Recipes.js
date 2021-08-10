@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import './scss/recipes.scss'
 
 const Recipes = ({searchData}) => {
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  // const API_KEY = process.env.REACT_APP_API_KEY;
   
-  const getRecipe = (id) => {
-    fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      window.open(`${data.sourceUrl}`,`_blank`)
-    })
-    .catch(err => console.log("Something went wrong. no idea what though so go read it yourself " + err ))
-  }
+  // const getRecipe = (id) => {
+  //   fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data)
+  //     window.open(`${data.sourceUrl}`,`_blank`)
+  //   })
+  //   .catch(err => console.log("Something went wrong. no idea what though so go read it yourself " + err ))
+  // }
 
   return (
     <div className="recipes-card">
