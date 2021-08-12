@@ -26,9 +26,12 @@ function App() {
   
   return (
     <div className="App">
-      <header>123Recipes </header>
+      <header>
+        <span>123Recipes</span>
+        <Search  getInfo={getInfo} handleChange={handleChange} className="search"/>
+        </header>
 
-      <Search  getInfo={getInfo} handleChange={handleChange} className="search"/>
+      
       {searchData &&  <Recipes searchData={searchData}/>}
     </div>
   );
