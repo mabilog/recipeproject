@@ -20,20 +20,7 @@ const Recipe = (props) =>{
       }
     })
   }, [])
-
-
-  // useEffect(() => {
-  //   // console.log(item)
-  //   // for (let i = 0; i < item.extendedIngredients.length; i++){
-  //   //   setIngredients(...ingredients, item.extendedIngredients[i].nameClean)
-  //   // }
-  //     // console.log(item.extendedIngredients.length)
-  //     for(let i = 0; i < item.extendedIngredients.length; i++) {
-  //       console.log(i)
-  //       console.log(item.extendedIngredients[i].nameClean)
-  //       setIngredients(...ingredients, item.extendedIngredients[i].nameClean)
-  //     }
-  // }, [item])
+  
   return(
     <div>
       {item && 
