@@ -4,7 +4,6 @@ import  SearchIcon from '@material-ui/icons/Search';
 
 const Search = ({handleChange, getInfo}) => {
 
-
   return (
   
     <div className="search-container">
