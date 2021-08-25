@@ -10,7 +10,7 @@ const Recipes = ({ data }) => {
   // useEffect(() => {
   //   console.log(props)
   // }, [])
-  console.log("Recipes Component" + data)
+  // console.log("Recipes Component" + data)
   return (
     <div className="recipes-card">
       {/* <h1>Recipes component </h1> */}
