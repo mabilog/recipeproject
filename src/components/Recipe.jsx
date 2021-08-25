@@ -25,7 +25,7 @@ const Recipe = (props) =>{
   return(
     <div>
       {item && 
-      <div>
+      <div className="recipe__wrapper">
         <h3 dangerouslySetInnerHTML={{ __html: item.title}}/>
         <p>Summary</p>
         <div dangerouslySetInnerHTML={{ __html: item.summary }} />
@@ -43,7 +43,6 @@ const Recipe = (props) =>{
               <span>Step {step.number}</span>
               <p>{step.step}</p>
             </li>
-
             )
           })}
           </ul>

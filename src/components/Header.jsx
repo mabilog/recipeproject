@@ -1,41 +1,23 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 // import {BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 
 import './scss/header.scss';
 
 import Search from './Search';
 
-const Header = ({query, setQuery, data, setData}) => {
-
-  const API_KEY = process.env.REACT_APP_API_KEY;
-
-  const getInfo = (e) => {
-    e.preventDefault();
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}`)
-      .then(res => res.json())
-      .then(data => {
-        setData(data)
-      })
-      .catch(err => console.log("Something went wrong! " + err))
-    
+const Header = ({ getInfo, handleChange, query }) => {
+  const history = useHistory(); 
+  
+  const handleClick = () => {
+    history.push("/");
+    console.log('useHistory')
   }
 
-  useEffect(() => {
-    console.log(data)
-    // <Redirect to="/recipes/:query" />
-  } , [data])
-  
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    console.log(e.target.value)
-  }
-
-  
   return (
     <div className='header-wrapper'>
-        <Link to="/" className="home"><span>123Recipes</span></Link>
-        <Search getInfo={getInfo} handleChange={handleChange} className="search"/>
+        <span onClick={handleClick}>123Recipes</span>
+        <Search getInfo={getInfo} handleChange={handleChange} query={query} className="search"/>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './scss/recipes.scss'
 
-const Recipes = ({match:{params:{query}}}) => {
+const Recipes = ({ data }) => {
   // const API_KEY = process.env.RECT_APP_API_KEY;
   // const query = props.match.params.query;
   // const [item, setItem] = useState();
@@ -10,11 +10,11 @@ const Recipes = ({match:{params:{query}}}) => {
   // useEffect(() => {
   //   console.log(props)
   // }, [])
-  
+  console.log("Recipes Component" + data)
   return (
     <div className="recipes-card">
-      <h1>Recipes component {query}</h1>
-        {/* {props.searchData.results.map(recipe => {
+      {/* <h1>Recipes component </h1> */}
+        {data.results.map(recipe => {
           return(
             <div className="recipe" key={recipe.id}>
             <h5 className="card-title">{recipe.title}</h5>
@@ -22,14 +22,12 @@ const Recipes = ({match:{params:{query}}}) => {
             <input type="checkbox" name="" id="" />
             <div className="img-container">
               <img src={recipe.image} alt={recipe.name}/>
-              <button>
-                <Link to={{ pathname: `/recipe/${recipe.id}` }} id={recipe.id}>Check Recipe</Link>
-              </button>
-               {/* <button onClick={() => getRecipe(recipe.id)}>Check Recipe</button> 
+                <Link to={`/recipe/${recipe.id}`} id={recipe.id}>Check Recipe</Link>
+               {/* <button onClick={() => getRecipe(recipe.id)}>Check Recipe</button>  */}
             </div>
            </div>
           )
-        })} */}
+        })}
     </div>
   )
 }
