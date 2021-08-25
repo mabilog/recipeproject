@@ -8,12 +8,6 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router>
-      <Switch>
-        <Route path='/' exact  component={App} />
-        <Route path='/recipe/:id' component={Recipe}/>
-      </Switch>
-    </Router> */}
     <App/>
   </React.StrictMode>,
   document.getElementById('root')

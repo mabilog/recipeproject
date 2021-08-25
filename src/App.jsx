@@ -1,11 +1,12 @@
 import './App.scss';
-import { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import Recipes from './components/Recipes';
 import Recipe from './components/Recipe';
 import Header from './components/Header';
-
+import Home from './components/Home'
+import About from './components/About';
 // import Search from './components/Search';
 
 function App() {
@@ -33,14 +34,14 @@ function App() {
   
   return (
     <div className="App">
-      <Header query={query} setQuery={setQuery} data={data} setData={setData}/>
 
       <Router>
-          {/* {searchData &&  <Recipes searchData={searchData}/>} */}
-        <Switch>
-          <Route path='recipes/:query' component={Recipes}/>
-          <Route path='recipe/:id' component={Recipe}/>
-        </Switch>
+        <Header query={query} setQuery={setQuery} data={data} setData={setData}/>
+          <Switch>
+            <Route path='/' exact component={Home}/>
+            <Route path='/recipes/:query' component={Recipes}/>
+            <Route path='/recipe/:id' component={Recipe}/>
+          </Switch>
       </Router>
 
       

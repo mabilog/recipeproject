@@ -1,5 +1,7 @@
-import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+// import {BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+
 import './scss/header.scss';
 
 import Search from './Search';
@@ -14,20 +16,26 @@ const Header = ({query, setQuery, data, setData}) => {
       .then(res => res.json())
       .then(data => {
         setData(data)
-        console.log(data)
       })
       .catch(err => console.log("Something went wrong! " + err))
+    
   }
+
+  useEffect(() => {
+    console.log(data)
+    // <Redirect to="/recipes/:query" />
+  } , [data])
   
   const handleChange = (e) => {
     setQuery(e.target.value);
+    console.log(e.target.value)
   }
 
+  
   return (
     <div className='header-wrapper'>
-      <span>123Recipes</span>
+        <Link to="/" className="home"><span>123Recipes</span></Link>
         <Search getInfo={getInfo} handleChange={handleChange} className="search"/>
-        
     </div>
   )
 }
