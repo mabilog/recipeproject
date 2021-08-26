@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import queryString from 'query-string';
 import './scss/recipes.scss'
 
-const Recipes = ({ data }) => {
+const Recipes = ({ data, favorite, setFavorite}) => {
   // const API_KEY = process.env.RECT_APP_API_KEY;
   // const query = props.match.params.query;
   // const [item, setItem] = useState();
@@ -11,6 +12,14 @@ const Recipes = ({ data }) => {
   //   console.log(props)
   // }, [])
   // console.log("Recipes Component" + data)
+  // const { query } = useLocation();
+  // const value = queryString.parse(query)
+  // console.log(value.filter)
+  // console.log(value.origin)
+  // console.log(data)
+
+  console.log(window.location)
+  
   return (
     <div className="recipes-card">
       {/* <h1>Recipes component </h1> */}
@@ -19,7 +28,11 @@ const Recipes = ({ data }) => {
             <div className="recipe" key={recipe.id}>
             <h5 className="card-title">{recipe.title}</h5>
             <h6 className="card-subtitle">{recipe.id}</h6>
-            <input type="checkbox" name="" id="" />
+            <div className="favoritesBtn">
+              <input type="checkbox" name="" id="" />
+              <span>Add to favorite</span>
+              </div>
+            
             <div className="img-container">
               <img src={recipe.image} alt={recipe.name}/>
                 <Link to={`/recipe/${recipe.id}`} id={recipe.id}>Check Recipe</Link>
