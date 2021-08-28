@@ -10,7 +10,7 @@ const Navbar = ({ query, setQuery, data, setData }) => {
           <h1>123Recipe</h1>
         </NavLink>
         <Search query={query} setQuery={setQuery} data={data} setData={setData} className="search"/>
-        <NavMenu>
+        {/* <NavMenu>
           <NavLink to='/about' activeStyle>About</NavLink>
         </NavMenu>
         <NavMenu>
@@ -18,7 +18,7 @@ const Navbar = ({ query, setQuery, data, setData }) => {
         </NavMenu>
         <NavMenu>
           <NavLink to='/contact-us' activeStyle>Contact us</NavLink>
-        </NavMenu>
+        </NavMenu> */}
         <NavMenu>
           <NavLink to='/sign-up' activeStyle>Sign up</NavLink>
         </NavMenu>

@@ -3,8 +3,9 @@ import { NavLink as NLink } from 'react-router-dom'
 
 export const Nav = styled.nav`
   background: #000;
-  height: 80px;
+  height: 60px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0.5rem calc((100vh - 1000px) / 2);
   z-index: 10;

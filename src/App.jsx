@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Recipes from './components/Recipes';
 import Recipe from './components/Recipe';
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
 import Home from './components/Home'
 import Favorites from './components/Favorites'
 
