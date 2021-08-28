@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Recipes from './components/Recipes';
@@ -8,16 +8,22 @@ import Recipe from './components/Recipe';
 import Home from './components/Home'
 import Favorites from './components/Favorites'
 
+import AddFavorites from './components/AddFavorites';
+import RemoveFavorites from './components/RemoveFavorites';
+
 import NavBar from './components/Navbar/Navbar';
 function App() {
   const [query, setQuery] = useState(null);
   const [data, setData] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
-  const saveToLocalStorage = (items) => {
-    localStorage.setItem('react-recipes-app-favorite', JSON.stringify(items))
-  }
-   
+  useEffect(() => {
+    if(localStorage.getItem('react-recipes-app-favorite')) setFavorites(JSON.parse(localStorage.getItem('react-recipes-app-favorite')))
+    else setFavorites([]);
+  },[])
+
+  useEffect(() => {
+  }, [data])
   return (
     <div className="App">
         <NavBar 
@@ -26,22 +32,27 @@ function App() {
           data={data} 
           setData={setData}
            />
-        {/* <Nav query={query} setQuery={setQuery} data={data} setData={setData} /> */}
-        <Favorites 
-          favorites={favorites} 
-          setFavorites={setFavorites} />
+        
           <Switch>
             {/* <Route exact path='/' component={Home} /> */}
-            <Route path='/recipes/:query'>
-              <Recipes 
+            {/* <Route path='/recipes/:query'> */}
+              { data && <Recipes 
                 data={data} 
-                favorites={favorites} 
+                setData={setData}
+                favorites={favorites}
                 setFavorites={setFavorites}
-                saveToLocalStorage={saveToLocalStorage}
-                />
-            </Route>
+                /> } 
+            {/* </Route> */}
             <Route path='/recipe/:id' component={Recipe}/>
-          </Switch>      
+          </Switch>  
+          
+          <Favorites 
+            setData={setData}
+            favorites={favorites} 
+            setFavorites={setFavorites}
+            heading="Favorites" 
+            />    
+
     </div>
   );
 }
