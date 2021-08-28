@@ -4,6 +4,7 @@ import './scss/search.scss'
 import  SearchIcon from '@material-ui/icons/Search';
 
 import Recipes from './Recipes'
+
 const Search = ({ query, setQuery, data, setData }) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const history = useHistory();
