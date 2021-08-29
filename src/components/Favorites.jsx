@@ -22,15 +22,14 @@ const Favorites = ({ setData, favorites, setFavorites }) => {
             return(
               <RecipeWrapper key={recipe.id}>
                 <h5 className="card-title">{recipe.title}</h5>
-                {/* <h6 className="card-subtitle">{recipe.id}</h6> */}
                 <div className="favoritesBtn">
                   <span onClick={() => RemoveFavoriteRecipe(recipe)}>Remove Favorite ❌</span>
                 </div>
                 
                 <div className="img-container">
                   <img src={recipe.image} alt={recipe.name}/>
-                    <Link to={`/recipe/${recipe.id}`} id={recipe.id} onClick={() => setData('')}>Check Recipe</Link>
-                  {/* <button onClick={() => getRecipe(recipe.id)}>Check Recipe</button>  */}
+                    {/* <Link to={`/recipe/${recipe.id}`} id={recipe.id} onClick={() => setData('')}>Check Recipe</Link> */}
+                  <button onClick={() => getRecipe(recipe.id)}>Check Recipe</button> 
                   <Overlay>{}</Overlay>
                 </div>
               </RecipeWrapper>

@@ -1,6 +1,6 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 
 import Recipes from './components/Recipes';
 import Recipe from './components/Recipe';
@@ -17,13 +17,17 @@ function App() {
   const [data, setData] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
+  const history = useHistory();
   useEffect(() => {
     if(localStorage.getItem('react-recipes-app-favorite')) setFavorites(JSON.parse(localStorage.getItem('react-recipes-app-favorite')))
     else setFavorites([]);
+
+    console.log(history);
   },[])
 
   useEffect(() => {
   }, [data])
+
   return (
     <div className="App">
         <NavBar 
